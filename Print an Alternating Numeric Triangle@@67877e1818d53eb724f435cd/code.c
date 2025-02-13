@@ -1,4 +1,3 @@
-// Your code here...
 #include <stdio.h>
 
 int main() {
@@ -11,7 +10,7 @@ int main() {
 
         for (int j = 1; j <= i; j++) {
             printf("%d", start);
-            start = 1 - start; 
+            start = 1 - start;
         }
         printf("\n");
     }
