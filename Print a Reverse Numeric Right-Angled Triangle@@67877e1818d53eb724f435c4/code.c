@@ -23,8 +23,8 @@ int main() {
     scanf("%d", &t);
     while (t--) {
         int num;
-        scanf("%d ", &num);
-        printf("%d\n", isPrime(num)); 
+        scanf("%d", &num);
+        printf("%d\n", isPrime(num)); // Correct placement of printf
     }
     return 0;
 }
