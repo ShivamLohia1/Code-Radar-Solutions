@@ -1,4 +1,3 @@
-// Your code here...
 #include <stdio.h>
 
 void reverse(int arr[], int start, int end) {
