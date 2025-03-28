@@ -1,29 +1,40 @@
 #include <stdio.h>
 
-void reverse(int arr[], int start, int end) {
-    while (start < end) {
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        start++;
-        end--;
-    }
-}
-
 int main() {
-    int n, k;
+    int n, m;
     scanf("%d", &n);
-    int arr[n];
+    int ranked[20000];
     for (int i = 0; i < n; i++) {
-        scanf("%d", &arr[i]);
+        scanf("%d", &ranked[i]);
     }
-    scanf("%d", &k);
-    k = k % n;
-    reverse(arr, 0, n - 1);
-    reverse(arr, 0, k - 1);
-    reverse(arr, k, n - 1);
-    for (int i = 0; i < n; i++) {
-        printf("%d ", arr[i]);
+
+    scanf("%d", &m);
+    int player[20000];
+    for (int i = 0; i < m; i++) {
+        scanf("%d", &player[i]);
     }
+
+    int denseRank[20000];
+    denseRank[0] = 1;
+    for (int i = 1; i < n; i++) {
+        if (ranked[i] == ranked[i - 1]) {
+            denseRank[i] = denseRank[i - 1];
+        } else {
+            denseRank[i] = denseRank[i - 1] + 1;
+        }
+    }
+
+    int i = n - 1;
+    for (int j = 0; j < m; j++) {
+        while (i >= 0 && player[j] >= ranked[i]) {
+            i--;
+        }
+        if (i < 0) {
+            printf("1\n");
+        } else {
+            printf("%d\n", denseRank[i] + 1);
+        }
+    }
+
     return 0;
 }
