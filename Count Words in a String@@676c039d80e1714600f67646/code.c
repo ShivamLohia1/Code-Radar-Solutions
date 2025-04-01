@@ -9,7 +9,7 @@ int main() {
     fgets(str, sizeof(str), stdin);
 
     for (i = 0; str[i] != '\0'; i++) {
-        if (isalnum(str[i])) { 
+        if (!isspace(str[i])) { 
             if (!in_word) {
                 count++;
                 in_word = 1;
