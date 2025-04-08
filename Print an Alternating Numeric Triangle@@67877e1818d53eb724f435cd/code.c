@@ -1,15 +1,14 @@
-// Your code here...
-#include<stdio.h>
-int main(){
-    int n,k,arr[100],count=0;
-    scanf("%d %d",&n,&k);
+#include <stdio.h>
+
+int main() {
+    int n;
+    scanf("%d",&n);
     for(int i=0;i<n;i++){
-        scanf("%d",&arr[i]);
-    }
-    for(int i=0;i<n;i++){
-        if(arr[i]==k){
-            count++;
+         int start = 1-(i % 2);
+        for(int j=0;j<=i;j++){
+            printf("%d ", (start + j) % 2);
         }
+        printf("\n");
     }
-    printf("%d",count);
+    return 0;
 }
