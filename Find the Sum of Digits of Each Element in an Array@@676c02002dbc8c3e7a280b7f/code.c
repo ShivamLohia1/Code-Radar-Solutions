@@ -1,20 +1,26 @@
 // Your code here...
-#include<stdio.h>
-int prime(int x){
-    if(x<=1) return 0;
-    for(int i=2;i<x;i++){
-        if(x%i==0) return 0;
-    }
-    return 1;
-}
+#include <stdio.h>
 int main(){
-    int n,arr[100],count=0;
+    int n,arr[100];
     scanf("%d",&n);
     for(int i=0;i<n;i++){
         scanf("%d",&arr[i]);
     }
     for(int i=0;i<n;i++){
-        if(prime(arr[i])) count++;
+        int temp=arr[i],sum=0;
+        while(temp!=0){
+            int a=temp%10;
+            sum+=a;
+            temp/=10;
+        }
+        if(sum<0){
+            arr[i]=-1*sum;
+        }else{
+            arr[i]=sum;
+        }
+        
     }
-    printf("%d",count);
+    for(int i=0;i<n;i++){
+        printf("%d ",arr[i]);
+    }
 }
