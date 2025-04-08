@@ -1,18 +1,11 @@
-#include <stdio.h>
-
-int main() {
-    char str[1000];
-    int length = 0;
-    fgets(str, sizeof(str), stdin);
-
-    if (str[0] == '\n') { 
-        printf("0\n");
-        return 0;
+#include<stdio.h>
+int main(){
+    char str[100];
+    int count=0;
+    fgets(str,100,stdin);
+    for(int i=0;str[i]!='\0';i++){
+        count++;
     }
-
-    while (str[length] != '\0' && str[length] != '\n') {
-        length++;
-    }
-    printf("%d\n", length);
+    printf("%d",count);
     return 0;
 }
