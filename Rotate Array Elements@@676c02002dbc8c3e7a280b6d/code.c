@@ -1,39 +1,21 @@
-// Your code here...
-#include <stdio.h>
-
-void reverse(int arr[], int start, int end) {
-    while (start < end) {
-        int temp = arr[start];
-        arr[start] = arr[end];
-        arr[end] = temp;
-        start++;
-        end--;
+#include<stdio.h>
+int main(){
+    int arr[100],n,k;
+    scanf("%d",&n);
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
     }
-}
-
-void rotateArray(int arr[], int N, int K) {
-    K = K % N;
-    reverse(arr, 0, N - 1);
-    reverse(arr, 0, K - 1);
-    reverse(arr, K, N - 1);
-}
-
-int main() {
-    int N, K;
-    scanf("%d", &N);
-
-    int arr[N];
-    for (int i = 0; i < N; i++) {
-        scanf("%d", &arr[i]);
+    scanf("%d",&k);
+    if(k>0){
+        for(int i=0;i<k;i++){
+            int temp = arr[n-1];
+            for(int j=n-1;j>0;j--){
+                arr[j]=arr[j-1];
+        }
+        arr[0]=temp;
+        }   
     }
-    
-    scanf("%d", &K);
-
-    rotateArray(arr, N, K);
-
-    for (int i = 0; i < N; i++) {
-        printf("%d\n", arr[i]);
+    for(int i=0;i<n;i++){
+        printf("%d\n",arr[i]);
     }
-
-    return 0;
 }
