@@ -1,19 +1,15 @@
-#include <stdio.h>
-
-int main() {
-    int n;
-
-    scanf("%d", &n);
-
-    for (int i = 1; i <= n; i++) {
-        int start = 1;
-
-        for (int j = 1; j <= i; j++) {
-            printf("%d", start);
-            start = 1 - start;
-        }
-        printf("\n");
+// Your code here...
+#include<stdio.h>
+int main(){
+    int n,k,arr[100],count=0;
+    scanf("%d %d",&n,&k);
+    for(int i=0;i<n;i++){
+        scanf("%d",&arr[i]);
     }
-
-    return 0;
+    for(int i=0;i<n;i++){
+        if(arr[i]==k){
+            count++;
+        }
+    }
+    printf("%d",count);
 }
